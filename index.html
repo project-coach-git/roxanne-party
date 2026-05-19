@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Party Spark - Mingle Mode</title>
+    <title>Roxanne's Birthday - Mingle Mode</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Montserrat:wght@600;700;800&family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,23 +18,15 @@
             --dark-purple: #3f0f5c;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            width: 100%;
-            height: 100%;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; min-height: 100%; }
 
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             padding: 20px;
             color: #e2e8f0;
@@ -48,18 +40,21 @@
             padding: 30px;
             box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(13, 148, 136, 0.2);
-            backdrop-filter: blur(10px);
+            margin-bottom: 80px;
         }
 
         .container-admin {
             width: 100%;
             max-width: 900px;
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(13, 148, 136, 0.2);
+            margin-bottom: 80px;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+        header { text-align: center; margin-bottom: 30px; }
 
         h1 {
             font-size: 2.2em;
@@ -72,28 +67,16 @@
             margin-bottom: 8px;
         }
 
-        .subtitle {
-            color: var(--silver);
-            font-size: 0.95em;
-            opacity: 0.8;
-        }
+        .subtitle { color: var(--silver); font-size: 0.95em; opacity: 0.8; }
 
-        /* SCREENS */
-        .screen {
-            display: none;
-        }
-
-        .screen.active {
-            display: block;
-            animation: fadeIn 0.5s ease-out;
-        }
+        .screen { display: none; }
+        .screen.active { display: block; animation: fadeIn 0.5s ease-out; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* CONSENT SCREEN */
         .consent-box {
             background: rgba(13, 148, 136, 0.1);
             border: 1px solid rgba(13, 148, 136, 0.3);
@@ -104,25 +87,8 @@
             font-size: 0.95em;
         }
 
-        .consent-box strong {
-            color: var(--teal);
-        }
-
-        .consent-box p {
-            margin-bottom: 12px;
-        }
-
-        .consent-box ul {
-            list-style: none;
-            margin: 12px 0;
-            padding-left: 0;
-        }
-
-        .consent-box li {
-            padding: 6px 0 6px 24px;
-            position: relative;
-        }
-
+        .consent-box ul { list-style: none; margin: 12px 0; padding-left: 0; }
+        .consent-box li { padding: 6px 0 6px 24px; position: relative; }
         .consent-box li::before {
             content: '✓';
             position: absolute;
@@ -141,18 +107,7 @@
             color: #fcd34d;
         }
 
-        .creator {
-            font-size: 0.85em;
-            color: var(--teal);
-            margin-top: 15px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        /* FORM INPUTS */
-        .form-group {
-            margin-bottom: 20px;
-        }
+        .form-group { margin-bottom: 20px; }
 
         label {
             display: block;
@@ -162,11 +117,7 @@
             font-size: 0.95em;
         }
 
-        input[type="text"],
-        input[type="password"],
-        textarea,
-        select,
-        input[type="number"] {
+        input[type="text"], input[type="password"], input[type="number"], textarea {
             width: 100%;
             padding: 12px;
             background: rgba(226, 232, 240, 0.08);
@@ -175,32 +126,17 @@
             color: var(--silver);
             font-family: inherit;
             font-size: 0.95em;
-            transition: all 0.3s;
         }
 
-        input[type="text"]:focus,
-        input[type="password"]:focus,
-        textarea:focus,
-        select:focus,
-        input[type="number"]:focus {
+        input:focus, textarea:focus {
             outline: none;
             border-color: var(--teal);
             background: rgba(13, 148, 136, 0.1);
-            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
         }
 
-        textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
+        textarea { resize: vertical; min-height: 80px; }
+        .optional-label { font-size: 0.8em; opacity: 0.7; margin-left: 8px; }
 
-        .optional-label {
-            font-size: 0.8em;
-            opacity: 0.7;
-            margin-left: 8px;
-        }
-
-        /* BUTTONS */
         .btn-group {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -226,10 +162,7 @@
             box-shadow: 0 8px 24px rgba(13, 148, 136, 0.4);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(13, 148, 136, 0.5);
-        }
+        .btn-primary:hover { transform: translateY(-2px); }
 
         .btn-secondary {
             background: rgba(226, 232, 240, 0.1);
@@ -237,18 +170,8 @@
             border: 2px solid rgba(226, 232, 240, 0.3);
         }
 
-        .btn-secondary:hover {
-            background: rgba(226, 232, 240, 0.15);
-            border-color: var(--silver);
-        }
+        .btn-small { padding: 8px 16px; font-size: 0.85em; grid-column: auto; }
 
-        .btn-small {
-            padding: 8px 16px;
-            font-size: 0.85em;
-            grid-column: auto;
-        }
-
-        /* TEAM DISPLAY */
         .team-card {
             background: linear-gradient(135deg, rgba(13, 148, 136, 0.2), rgba(109, 40, 217, 0.15));
             border: 2px solid var(--teal);
@@ -258,10 +181,7 @@
             margin-bottom: 25px;
         }
 
-        .team-emoji {
-            font-size: 3em;
-            margin-bottom: 12px;
-        }
+        .team-emoji { font-size: 3em; margin-bottom: 12px; }
 
         .team-name {
             font-size: 1.8em;
@@ -276,22 +196,11 @@
             border-radius: 8px;
             padding: 15px;
             margin-top: 15px;
-            font-size: 0.9em;
         }
 
-        .score-display h4 {
-            color: var(--silver);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
+        .score-display h4 { color: var(--silver); margin-bottom: 8px; font-weight: 600; }
+        .score-value { font-size: 2.5em; font-weight: 800; color: var(--teal); }
 
-        .score-value {
-            font-size: 2.5em;
-            font-weight: 800;
-            color: var(--teal);
-        }
-
-        /* QR CODE SECTION */
         .qr-section {
             background: rgba(13, 148, 136, 0.1);
             border: 1px solid rgba(13, 148, 136, 0.3);
@@ -301,12 +210,7 @@
             margin-bottom: 25px;
         }
 
-        .qr-section h3 {
-            color: var(--silver);
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
+        .qr-section h3 { color: var(--silver); margin-bottom: 15px; font-size: 1.1em; }
 
         #qrcode {
             background: white;
@@ -316,13 +220,8 @@
             margin-bottom: 12px;
         }
 
-        .qr-instruction {
-            font-size: 0.85em;
-            color: #cbd5e1;
-            margin-top: 12px;
-        }
+        .qr-instruction { font-size: 0.85em; color: #cbd5e1; margin-top: 12px; }
 
-        /* CAMERA SCANNER */
         .scanner-section {
             background: rgba(13, 148, 136, 0.1);
             border: 1px solid rgba(13, 148, 136, 0.3);
@@ -331,22 +230,8 @@
             margin-bottom: 25px;
         }
 
-        #video {
-            width: 100%;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
+        #video { width: 100%; border-radius: 8px; margin-bottom: 15px; }
 
-        .scanner-controls {
-            display: flex;
-            gap: 12px;
-        }
-
-        .scanner-controls button {
-            flex: 1;
-        }
-
-        /* PERSON CARD */
         .person-card {
             background: linear-gradient(135deg, rgba(13, 148, 136, 0.2), rgba(109, 40, 217, 0.15));
             border: 2px solid var(--teal);
@@ -356,19 +241,8 @@
             margin-bottom: 20px;
         }
 
-        .person-name {
-            font-size: 2em;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .person-team {
-            font-size: 1.1em;
-            color: var(--teal);
-            margin-bottom: 15px;
-        }
+        .person-name { font-size: 2em; font-family: 'Poppins', sans-serif; font-weight: 800; color: white; margin-bottom: 8px; }
+        .person-team { font-size: 1.1em; color: var(--teal); margin-bottom: 15px; }
 
         .person-fact {
             background: rgba(15, 23, 42, 0.5);
@@ -380,14 +254,8 @@
             margin-bottom: 20px;
         }
 
-        .points-awarded {
-            font-size: 2em;
-            font-weight: 800;
-            color: var(--teal);
-            margin-bottom: 15px;
-        }
+        .points-awarded { font-size: 2em; font-weight: 800; color: var(--teal); margin-bottom: 15px; }
 
-        /* LEADERBOARD */
         .leaderboard-item {
             background: rgba(13, 148, 136, 0.1);
             border-left: 3px solid var(--teal);
@@ -399,36 +267,12 @@
             align-items: center;
         }
 
-        .leaderboard-rank {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: var(--teal);
-            min-width: 30px;
-        }
+        .leaderboard-rank { font-size: 1.2em; font-weight: 700; color: var(--teal); min-width: 30px; }
+        .leaderboard-team { flex: 1; margin-left: 15px; }
+        .leaderboard-team-name { font-weight: 600; color: var(--silver); margin-bottom: 3px; }
+        .leaderboard-team-score { font-size: 0.85em; color: #cbd5e1; }
+        .leaderboard-points { font-size: 1.3em; font-weight: 800; color: var(--teal); }
 
-        .leaderboard-team {
-            flex: 1;
-            margin-left: 15px;
-        }
-
-        .leaderboard-team-name {
-            font-weight: 600;
-            color: var(--silver);
-            margin-bottom: 3px;
-        }
-
-        .leaderboard-team-score {
-            font-size: 0.85em;
-            color: #cbd5e1;
-        }
-
-        .leaderboard-points {
-            font-size: 1.3em;
-            font-weight: 800;
-            color: var(--teal);
-        }
-
-        /* ADMIN PANEL */
         .admin-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -443,35 +287,15 @@
             padding: 20px;
         }
 
-        .admin-card h3 {
-            color: var(--teal);
-            margin-bottom: 15px;
-            font-weight: 600;
-            font-size: 1.1em;
-        }
-
-        .admin-stat {
-            margin-bottom: 12px;
-        }
-
-        .admin-stat label {
-            display: block;
-            font-size: 0.85em;
-            color: #cbd5e1;
-            margin-bottom: 4px;
-        }
-
-        .admin-stat-value {
-            font-size: 1.5em;
-            font-weight: 800;
-            color: var(--teal);
-        }
+        .admin-card h3 { color: var(--teal); margin-bottom: 15px; font-size: 1.1em; }
+        .admin-stat { margin-bottom: 12px; }
+        .admin-stat-value { font-size: 1.5em; font-weight: 800; color: var(--teal); }
 
         .interaction-log {
             background: rgba(15, 23, 42, 0.5);
             border-radius: 8px;
             padding: 15px;
-            max-height: 400px;
+            max-height: 300px;
             overflow-y: auto;
             margin-top: 15px;
         }
@@ -483,11 +307,6 @@
             color: #cbd5e1;
         }
 
-        .log-entry:last-child {
-            border-bottom: none;
-        }
-
-        /* STATUS MESSAGES */
         .success-message {
             background: rgba(16, 185, 129, 0.2);
             color: #6ee7b7;
@@ -496,44 +315,15 @@
             margin-bottom: 20px;
             text-align: center;
             border: 1px solid rgba(16, 185, 129, 0.5);
-            display: none;
         }
 
-        .success-message.show {
-            display: block;
-            animation: slideDown 0.4s ease-out;
+        .loading-message {
+            text-align: center;
+            color: var(--teal);
+            padding: 20px;
+            font-weight: 600;
         }
 
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px;
-                border-radius: 12px;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            .btn-group {
-                grid-template-columns: 1fr;
-            }
-
-            .admin-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        /* FLOATING ADMIN BUTTON */
         .admin-button-floating {
             position: fixed;
             bottom: 20px;
@@ -549,22 +339,21 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             transition: all 0.3s;
-            font-weight: 700;
         }
 
-        .admin-button-floating:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        .admin-button-floating:hover { transform: scale(1.1); }
+
+        @media (max-width: 480px) {
+            .container, .container-admin { padding: 20px; }
+            h1 { font-size: 1.8em; }
+            .btn-group { grid-template-columns: 1fr; }
+            .admin-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎉 MINGLE MODE</h1>
-            <p class="subtitle">Get to know everyone. Earn points. Have fun!</p>
-        </header>
-
+    <!-- MAIN CONTAINER -->
+    <div class="container" id="mainContainer">
         <!-- CONSENT SCREEN -->
         <div id="consentScreen" class="screen active">
             <div style="text-align: center; margin-bottom: 30px;">
@@ -591,100 +380,93 @@
                     <li>Created by Michael Hubicki</li>
                 </ul>
 
-                <div class="deletion-notice" style="background: rgba(251, 191, 36, 0.2); border-left-color: #fbbf24; margin-top: 15px;">
+                <div class="deletion-notice">
                     ⏰ Your data will be deleted on <span id="deletionDate" style="font-weight: 700;"></span>
                 </div>
             </div>
 
-            <div class="btn-group" style="margin-top: 30px;">
+            <div class="btn-group">
                 <button class="btn btn-primary" onclick="agreeToConsent()">Yes! Let's Party 🎊</button>
                 <button class="btn btn-secondary" onclick="declineConsent()">Not Right Now</button>
             </div>
         </div>
 
-        <!-- ADMIN LOGIN SCREEN -->
+        <!-- ADMIN LOGIN -->
         <div id="adminLoginScreen" class="screen">
-            <div class="form-group" style="margin-top: 30px;">
+            <header>
+                <h1>⚙️ ADMIN</h1>
+            </header>
+            <div class="form-group">
                 <label>Admin Password</label>
                 <input type="password" id="adminPassword" placeholder="Enter password" onkeypress="if(event.key==='Enter')adminAccessCheck()">
             </div>
-
             <div class="btn-group">
-                <button class="btn btn-primary" onclick="adminAccessCheck()">Access Admin Panel</button>
-                <button class="btn btn-secondary" onclick="backToConsent()">Back</button>
+                <button class="btn btn-primary" onclick="adminAccessCheck()">Login</button>
+                <button class="btn btn-secondary" onclick="goBackHome()">Back</button>
             </div>
         </div>
 
-        <!-- NAME/FUNFACT SCREEN -->
+        <!-- NAME ENTRY -->
         <div id="setupScreen" class="screen">
+            <header>
+                <h1>Welcome!</h1>
+                <p class="subtitle">Let's get you set up</p>
+            </header>
             <div class="form-group">
                 <label>What's your name? *</label>
                 <input type="text" id="nameInput" placeholder="Enter your name" autocomplete="off">
             </div>
-
             <div class="form-group">
                 <label>How do you know Roxanne? <span class="optional-label">(optional)</span></label>
                 <textarea id="funFactInput" placeholder="e.g., 'I'm her neighbor', 'We went to college together'"></textarea>
             </div>
-
             <button class="btn btn-primary" onclick="setupGuest()">Join Your Team 🚀</button>
         </div>
 
-        <!-- TEAM ASSIGNMENT SCREEN -->
+        <!-- TEAM ASSIGNMENT -->
         <div id="teamScreen" class="screen">
-            <div class="success-message show" style="display: block;">
-                ✅ Welcome to the party!
-            </div>
-
+            <div class="success-message">✅ Welcome to the party!</div>
             <div class="team-card">
                 <div class="team-emoji" id="teamEmoji"></div>
                 <div class="team-name" id="teamName"></div>
                 <p style="color: #cbd5e1; margin-bottom: 15px;">Your team for tonight</p>
-                
                 <div class="score-display">
-                    <h4>Your Score So Far</h4>
+                    <h4>Your Score</h4>
                     <div class="score-value" id="teamScreenScore">0</div>
-                    <p style="font-size: 0.8em; color: #cbd5e1; margin-top: 5px;">points earned</p>
+                    <p style="font-size: 0.8em; color: #cbd5e1; margin-top: 5px;">points</p>
                 </div>
             </div>
-
-            <button class="btn btn-primary" onclick="goToQRCode()" style="margin-bottom: 15px;">Ready to Mingle 🎯</button>
+            <button class="btn btn-primary" onclick="goToQRCode()">Ready to Mingle 🎯</button>
         </div>
 
-        <!-- QR CODE DISPLAY SCREEN -->
+        <!-- QR CODE DISPLAY -->
         <div id="qrScreen" class="screen">
             <div style="background: rgba(13, 148, 136, 0.1); border: 1px solid rgba(13, 148, 136, 0.3); border-radius: 12px; padding: 15px; margin-bottom: 20px; text-align: center;">
                 <p style="color: #cbd5e1; font-size: 0.9em; margin-bottom: 8px;">Your Score</p>
                 <p style="font-size: 2.5em; font-weight: 800; color: var(--teal);" id="qrScreenScore">0 pts</p>
+                <p style="color: #cbd5e1; font-size: 0.85em; margin-top: 8px;" id="qrScreenTeam"></p>
             </div>
-
             <div class="qr-section">
                 <h3>Your Mingle Code</h3>
                 <p style="color: #cbd5e1; margin-bottom: 15px;">Others will scan this to meet you!</p>
                 <div id="qrcode" style="width: 180px; height: 180px;"></div>
-                <div class="qr-instruction">
-                    Hold this up for others to scan
-                </div>
+                <div class="qr-instruction">Hold this up for others to scan</div>
             </div>
-
             <h3 style="color: var(--silver); margin-bottom: 15px; text-align: center; font-size: 1.1em;">Or Scan Theirs 📱</h3>
-
             <button class="btn btn-primary" onclick="startScanning()" style="margin-bottom: 15px;">Start Scanning</button>
-            <button class="btn btn-secondary" onclick="goToLeaderboard()">View Leaderboard 🏆</button>
+            <button class="btn btn-secondary" onclick="goToLeaderboard()" style="width: 100%;">View Leaderboard 🏆</button>
         </div>
 
-        <!-- CAMERA SCANNER SCREEN -->
+        <!-- CAMERA SCANNER -->
         <div id="scannerScreen" class="screen">
+            <header><h1>📱 Scan</h1></header>
             <div class="scanner-section">
                 <video id="video" playsinline></video>
-                <div class="scanner-controls">
-                    <button class="btn btn-secondary" onclick="stopScanning()">Stop & Go Back</button>
-                </div>
+                <button class="btn btn-secondary" onclick="stopScanning()" style="width: 100%;">Stop & Go Back</button>
             </div>
-            <div id="scanResult"></div>
         </div>
 
-        <!-- PERSON RESULT SCREEN -->
+        <!-- PERSON RESULT -->
         <div id="resultScreen" class="screen">
             <div class="person-card">
                 <div class="person-name" id="resultName"></div>
@@ -692,24 +474,20 @@
                 <div class="person-fact" id="resultFact"></div>
                 <div class="points-awarded" id="pointsAwarded"></div>
             </div>
-
             <div class="btn-group">
                 <button class="btn btn-primary" onclick="confirmedChat()">We Chatted! ✅</button>
-                <button class="btn btn-secondary" onclick="resumeScanning()">Skip & Keep Scanning</button>
+                <button class="btn btn-secondary" onclick="resumeScanning()">Skip</button>
             </div>
         </div>
 
-        <!-- LEADERBOARD SCREEN -->
+        <!-- LEADERBOARD -->
         <div id="leaderboardScreen" class="screen">
             <h2 style="color: var(--silver); margin-bottom: 20px; text-align: center; font-size: 1.5em;">🏆 Team Leaderboard</h2>
-            
             <div style="background: rgba(13, 148, 136, 0.1); border: 1px solid rgba(13, 148, 136, 0.3); border-radius: 8px; padding: 15px; margin-bottom: 25px;">
                 <p style="color: #cbd5e1; font-size: 0.9em; margin-bottom: 8px;">Your Personal Score</p>
                 <p style="font-size: 2em; font-weight: 800; color: var(--teal);" id="yourScore">0 pts</p>
             </div>
-
-            <div id="leaderboardList" style="margin-bottom: 25px;"></div>
-
+            <div id="leaderboardList" style="margin-bottom: 25px;"><div class="loading-message">Loading...</div></div>
             <div class="btn-group">
                 <button class="btn btn-primary" onclick="goToQRCode()">Back to Mingling 🎯</button>
                 <button class="btn btn-secondary" onclick="startScanning()">Scan Someone</button>
@@ -718,68 +496,93 @@
     </div>
 
     <!-- ADMIN PANEL -->
-    <div id="adminPanel" class="screen">
-        <div class="container-admin">
-            <header>
-                <h1>⚙️ ADMIN PANEL</h1>
-                <p class="subtitle">Control the game. Monitor scores. Adjust rules on the fly.</p>
-            </header>
+    <div class="container-admin screen" id="adminPanel" style="display:none;">
+        <header>
+            <h1>⚙️ ADMIN PANEL</h1>
+            <p class="subtitle">Live monitoring & controls</p>
+        </header>
 
-            <div class="admin-grid">
-                <!-- CONTROLS -->
-                <div class="admin-card">
-                    <h3>Game Controls</h3>
-                    
-                    <div class="form-group">
-                        <label>Same Team Points</label>
-                        <input type="number" id="sameTeamPoints" value="20" min="1">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Different Team Points</label>
-                        <input type="number" id="diffTeamPoints" value="10" min="1">
-                    </div>
-
-                    <div class="btn-group" style="margin-top: 15px;">
-                        <button class="btn btn-primary btn-small" onclick="updatePointValues()">Update Points</button>
-                        <button class="btn btn-secondary btn-small" onclick="resetAllScores()">Reset Scores</button>
-                    </div>
+        <div class="admin-grid">
+            <div class="admin-card">
+                <h3>Game Controls</h3>
+                <div class="form-group">
+                    <label>Same Team Points</label>
+                    <input type="number" id="sameTeamPoints" value="20" min="1">
                 </div>
-
-                <!-- STATS -->
-                <div class="admin-card">
-                    <h3>Live Stats</h3>
-                    
-                    <div class="admin-stat">
-                        <label>Guests Checked In</label>
-                        <div class="admin-stat-value" id="guestCount">0</div>
-                    </div>
-
-                    <div class="admin-stat">
-                        <label>Total Interactions</label>
-                        <div class="admin-stat-value" id="interactionCount">0</div>
-                    </div>
-
-                    <button class="btn btn-secondary btn-small" onclick="refreshAdminStats()" style="width: 100%; grid-column: auto; margin-top: 15px;">Refresh</button>
+                <div class="form-group">
+                    <label>Different Team Points</label>
+                    <input type="number" id="diffTeamPoints" value="10" min="1">
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary btn-small" onclick="updatePointValues()">Update</button>
+                    <button class="btn btn-secondary btn-small" onclick="resetAllScores()">Reset Scores</button>
                 </div>
             </div>
 
-            <!-- LEADERBOARD -->
-            <div class="admin-card" style="grid-column: 1 / -1;">
-                <h3>Team Standings (Pro-Rated)</h3>
-                <div id="adminLeaderboard"></div>
+            <div class="admin-card">
+                <h3>Live Stats</h3>
+                <div class="admin-stat">
+                    <label>Guests</label>
+                    <div class="admin-stat-value" id="guestCount">0</div>
+                </div>
+                <div class="admin-stat">
+                    <label>Interactions</label>
+                    <div class="admin-stat-value" id="interactionCount">0</div>
+                </div>
+                <button class="btn btn-secondary btn-small" onclick="deleteAllData()" style="width: 100%; margin-top: 10px;">⚠️ Delete All Data</button>
             </div>
-
-            <!-- INTERACTION LOG -->
-            <div class="admin-card" style="grid-column: 1 / -1;">
-                <h3>Interaction Log</h3>
-                <div class="interaction-log" id="adminLog"></div>
-            </div>
-
-            <!-- BACK BUTTON -->
-            <button class="btn btn-secondary" onclick="exitAdmin()" style="grid-column: 1 / -1; margin-top: 20px;">Exit Admin Panel</button>
         </div>
+
+        <div class="admin-card" style="margin-bottom: 20px;">
+            <h3>Team Standings (Pro-Rated)</h3>
+            <div id="adminLeaderboard"><div class="loading-message">Loading...</div></div>
+        </div>
+
+        <div class="admin-card" style="margin-bottom: 20px;">
+            <h3>Interaction Log</h3>
+            <div class="interaction-log" id="adminLog"><div class="loading-message">Loading...</div></div>
+        </div>
+
+        <button class="btn btn-secondary" onclick="exitAdmin()" style="width: 100%;">Exit Admin Panel</button>
     </div>
+
+    <!-- FLOATING ADMIN BUTTON -->
+    <button class="admin-button-floating" onclick="adminLogin()" title="Admin">⚙️</button>
+
+    <!-- FIREBASE SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { 
+            getFirestore, doc, setDoc, getDoc, updateDoc, collection, 
+            getDocs, onSnapshot, query, orderBy, deleteDoc, addDoc,
+            serverTimestamp, increment, writeBatch
+        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // YOUR FIREBASE CONFIG
+        const firebaseConfig = {
+            apiKey: "AIzaSyC5RjxJO07MxUt9I_wMy_YCsHmn2wdDu3Y",
+            authDomain: "roxanne-birthday-app.firebaseapp.com",
+            projectId: "roxanne-birthday-app",
+            storageBucket: "roxanne-birthday-app.firebasestorage.app",
+            messagingSenderId: "583474068387",
+            appId: "1:583474068387:web:8ae273ed0a58ece1c37816"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Make Firebase available globally
+        window.fb = {
+            db, doc, setDoc, getDoc, updateDoc, collection, getDocs, 
+            onSnapshot, query, orderBy, deleteDoc, addDoc, serverTimestamp,
+            increment, writeBatch
+        };
+
+        // Signal that Firebase is ready
+        window.firebaseReady = true;
+        window.dispatchEvent(new Event('firebaseReady'));
+    </script>
 
     <script>
         // CONFIG
@@ -799,37 +602,65 @@
         ];
 
         let currentGuest = null;
-        let guestDatabase = JSON.parse(localStorage.getItem('guests')) || {};
-        let interactions = JSON.parse(localStorage.getItem('interactions')) || [];
-        let gameSettings = JSON.parse(localStorage.getItem('gameSettings')) || { sameTeam: 20, diffTeam: 10 };
+        let gameSettings = { sameTeam: 20, diffTeam: 10 };
+        let stream = null;
+        let scanInterval = null;
+        let leaderboardUnsubscribe = null;
+        let adminUnsubscribe = null;
 
-        // CONSENT FLOW
+        // SCREEN MANAGEMENT
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            const screen = document.getElementById(screenId);
+            if (screen) screen.classList.add('active');
+            
+            // Handle admin panel visibility
+            const adminPanel = document.getElementById('adminPanel');
+            const mainContainer = document.getElementById('mainContainer');
+            const floatingBtn = document.querySelector('.admin-button-floating');
+            
+            if (screenId === 'adminPanel') {
+                adminPanel.style.display = 'block';
+                mainContainer.style.display = 'none';
+                floatingBtn.style.display = 'none';
+            } else {
+                adminPanel.style.display = 'none';
+                mainContainer.style.display = 'block';
+                floatingBtn.style.display = 'block';
+            }
+        }
+
+        // CONSENT
         function agreeToConsent() {
-            document.getElementById('consentScreen').classList.remove('active');
-            document.getElementById('setupScreen').classList.add('active');
+            showScreen('setupScreen');
         }
 
         function declineConsent() {
-            alert('You must agree to participate in Mingle Mode.');
-            window.location.reload();
+            alert('You must agree to participate.');
         }
 
+        // ADMIN
         function adminLogin() {
-            document.getElementById('consentScreen').classList.remove('active');
-            document.getElementById('adminLoginScreen').classList.add('active');
+            // Stop any active scanning
+            if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+            if (scanInterval) { clearInterval(scanInterval); scanInterval = null; }
+            showScreen('adminLoginScreen');
         }
 
-        function backToConsent() {
-            document.getElementById('adminLoginScreen').classList.remove('active');
-            document.getElementById('consentScreen').classList.add('active');
+        function goBackHome() {
+            if (currentGuest) {
+                showScreen('qrScreen');
+            } else {
+                showScreen('consentScreen');
+            }
         }
 
         function adminAccessCheck() {
             const password = document.getElementById('adminPassword').value;
             if (password === ADMIN_PASSWORD) {
-                document.getElementById('adminLoginScreen').classList.remove('active');
-                document.getElementById('adminPanel').classList.add('active');
-                refreshAdminStats();
+                document.getElementById('adminPassword').value = '';
+                showScreen('adminPanel');
+                startAdminListeners();
             } else {
                 alert('Incorrect password');
                 document.getElementById('adminPassword').value = '';
@@ -837,13 +668,12 @@
         }
 
         function exitAdmin() {
-            document.getElementById('adminPanel').classList.remove('active');
-            document.getElementById('consentScreen').classList.add('active');
-            document.getElementById('adminPassword').value = '';
+            if (adminUnsubscribe) { adminUnsubscribe(); adminUnsubscribe = null; }
+            goBackHome();
         }
 
         // SETUP GUEST
-        function setupGuest() {
+        async function setupGuest() {
             const name = document.getElementById('nameInput').value.trim();
             const funFact = document.getElementById('funFactInput').value.trim();
 
@@ -860,17 +690,25 @@
                 name: name,
                 funFact: funFact,
                 team: randomTeam.id,
-                joinedAt: new Date().toISOString(),
                 score: 0
             };
 
-            guestDatabase[guestId] = currentGuest;
-            localStorage.setItem('guests', JSON.stringify(guestDatabase));
-            localStorage.setItem('currentGuestId', guestId);
+            try {
+                await window.fb.setDoc(window.fb.doc(window.fb.db, 'guests', guestId), {
+                    name: name,
+                    funFact: funFact,
+                    team: randomTeam.id,
+                    score: 0,
+                    joinedAt: window.fb.serverTimestamp()
+                });
 
-            document.getElementById('setupScreen').classList.remove('active');
-            document.getElementById('teamScreen').classList.add('active');
-            displayTeamInfo();
+                localStorage.setItem('currentGuestId', guestId);
+                showScreen('teamScreen');
+                displayTeamInfo();
+            } catch (e) {
+                console.error('Setup error:', e);
+                alert('Could not connect to server. Please check your internet and try again.');
+            }
         }
 
         function displayTeamInfo() {
@@ -881,10 +719,11 @@
         }
 
         function goToQRCode() {
-            document.getElementById('teamScreen').classList.remove('active');
-            document.getElementById('qrScreen').classList.add('active');
+            showScreen('qrScreen');
             generateQRCode();
             updateScoreDisplay();
+            const team = TEAMS.find(t => t.id === currentGuest.team);
+            document.getElementById('qrScreenTeam').textContent = `${team.emoji} ${team.name}`;
         }
 
         function generateQRCode() {
@@ -900,34 +739,40 @@
             });
         }
 
-        function updateScoreDisplay() {
+        async function updateScoreDisplay() {
+            // Refresh current guest data from Firebase
+            try {
+                const guestDoc = await window.fb.getDoc(window.fb.doc(window.fb.db, 'guests', currentGuest.id));
+                if (guestDoc.exists()) {
+                    currentGuest.score = guestDoc.data().score || 0;
+                }
+            } catch (e) { console.error('Score refresh error:', e); }
+
             document.getElementById('qrScreenScore').textContent = currentGuest.score + ' pts';
-            document.getElementById('yourScore').textContent = currentGuest.score + ' pts';
+            const yourScoreEl = document.getElementById('yourScore');
+            if (yourScoreEl) yourScoreEl.textContent = currentGuest.score + ' pts';
         }
 
-        // CAMERA SCANNING
-        let stream = null;
-
+        // SCANNING
         function startScanning() {
-            document.getElementById('qrScreen').classList.remove('active');
-            document.getElementById('scannerScreen').classList.add('active');
-
+            showScreen('scannerScreen');
             navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
                 .then(s => {
                     stream = s;
                     document.getElementById('video').srcObject = stream;
                     scanForQRCode();
                 })
-                .catch(err => alert('Camera access required to scan'));
+                .catch(err => {
+                    alert('Camera access required to scan');
+                    showScreen('qrScreen');
+                });
         }
 
         function stopScanning() {
-            if (stream) {
-                stream.getTracks().forEach(track => track.stop());
-            }
-            if (window.currentScanInterval) clearInterval(window.currentScanInterval);
-            document.getElementById('scannerScreen').classList.remove('active');
-            document.getElementById('qrScreen').classList.add('active');
+            if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+            if (scanInterval) { clearInterval(scanInterval); scanInterval = null; }
+            showScreen('qrScreen');
+            updateScoreDisplay();
         }
 
         function scanForQRCode() {
@@ -935,152 +780,215 @@
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
 
-            const scanInterval = setInterval(() => {
+            scanInterval = setInterval(() => {
                 if (video.readyState !== video.HAVE_ENOUGH_DATA) return;
-
                 canvas.width = video.videoWidth;
                 canvas.height = video.videoHeight;
                 ctx.drawImage(video, 0, 0);
-
                 try {
                     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                     const code = jsQR(imageData.data, imageData.width, imageData.height);
                     if (code) {
                         clearInterval(scanInterval);
+                        scanInterval = null;
                         showScannedPerson(code.data);
                     }
                 } catch (e) {}
-            }, 500);
-
-            window.currentScanInterval = scanInterval;
+            }, 300);
         }
 
-        function showScannedPerson(guestId) {
-            if (window.currentScanInterval) clearInterval(window.currentScanInterval);
-            if (stream) stream.getTracks().forEach(track => track.stop());
+        async function showScannedPerson(guestId) {
+            if (scanInterval) { clearInterval(scanInterval); scanInterval = null; }
+            if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
 
-            const scannedGuest = guestDatabase[guestId];
-            if (!scannedGuest) {
-                alert('Guest not found');
+            if (guestId === currentGuest.id) {
+                alert("That's your own QR code! Find someone else to scan.");
+                showScreen('qrScreen');
                 return;
             }
 
-            const team = TEAMS.find(t => t.id === scannedGuest.team);
-            const sameTeam = currentGuest.team === scannedGuest.team;
-            const points = sameTeam ? gameSettings.sameTeam : gameSettings.diffTeam;
+            try {
+                const guestDoc = await window.fb.getDoc(window.fb.doc(window.fb.db, 'guests', guestId));
+                if (!guestDoc.exists()) {
+                    alert('Guest not found. Make sure they have signed up first.');
+                    showScreen('qrScreen');
+                    return;
+                }
 
-            document.getElementById('resultName').textContent = scannedGuest.name;
-            document.getElementById('resultTeam').textContent = `${team.emoji} ${team.name}`;
-            document.getElementById('resultFact').textContent = scannedGuest.funFact || 'No fun fact shared';
-            document.getElementById('pointsAwarded').textContent = `+${points} pts`;
+                const scannedGuest = guestDoc.data();
+                scannedGuest.id = guestId;
 
-            document.getElementById('scannerScreen').classList.remove('active');
-            document.getElementById('resultScreen').classList.add('active');
+                const team = TEAMS.find(t => t.id === scannedGuest.team);
+                const sameTeam = currentGuest.team === scannedGuest.team;
+                const points = sameTeam ? gameSettings.sameTeam : gameSettings.diffTeam;
 
-            window.scannedGuestId = guestId;
-            window.pointsToAward = points;
-            window.sameTeamMet = sameTeam;
+                document.getElementById('resultName').textContent = scannedGuest.name;
+                document.getElementById('resultTeam').textContent = `${team.emoji} ${team.name}`;
+                document.getElementById('resultFact').textContent = scannedGuest.funFact || 'No fun fact shared';
+                document.getElementById('pointsAwarded').textContent = `+${points} pts each`;
+
+                showScreen('resultScreen');
+
+                window.scannedGuestData = scannedGuest;
+                window.pointsToAward = points;
+                window.sameTeamMet = sameTeam;
+            } catch (e) {
+                console.error('Scan error:', e);
+                alert('Error reading scan. Please try again.');
+                showScreen('qrScreen');
+            }
         }
 
-        function confirmedChat() {
-            const scannedGuest = guestDatabase[window.scannedGuestId];
+        async function confirmedChat() {
+            const scannedGuest = window.scannedGuestData;
             const points = window.pointsToAward;
+            const sameTeam = window.sameTeamMet;
 
-            // Record interaction
-            interactions.push({
-                timestamp: new Date().toISOString(),
-                guest1: currentGuest.id,
-                guest1Name: currentGuest.name,
-                guest2: window.scannedGuestId,
-                guest2Name: scannedGuest.name,
-                points: points,
-                sameTeam: window.sameTeamMet
-            });
+            try {
+                // Use a batch write to update both guests atomically
+                const batch = window.fb.writeBatch(window.fb.db);
+                
+                batch.update(window.fb.doc(window.fb.db, 'guests', currentGuest.id), {
+                    score: window.fb.increment(points)
+                });
+                batch.update(window.fb.doc(window.fb.db, 'guests', scannedGuest.id), {
+                    score: window.fb.increment(points)
+                });
+                
+                await batch.commit();
 
-            // Update scores
-            currentGuest.score += points;
-            scannedGuest.score += points;
-            guestDatabase[currentGuest.id] = currentGuest;
-            guestDatabase[window.scannedGuestId] = scannedGuest;
+                // Log interaction
+                await window.fb.addDoc(window.fb.collection(window.fb.db, 'interactions'), {
+                    guest1: currentGuest.id,
+                    guest1Name: currentGuest.name,
+                    guest2: scannedGuest.id,
+                    guest2Name: scannedGuest.name,
+                    points: points,
+                    sameTeam: sameTeam,
+                    timestamp: window.fb.serverTimestamp()
+                });
 
-            localStorage.setItem('guests', JSON.stringify(guestDatabase));
-            localStorage.setItem('interactions', JSON.stringify(interactions));
+                // Update local score
+                currentGuest.score += points;
 
-            // Show confirmation
-            const message = window.sameTeamMet ? `+${points} Team Bonus!` : `+${points} New Connection!`;
-            const resultDiv = document.getElementById('resultScreen');
-            const successMsg = document.createElement('div');
-            successMsg.className = 'success-message show';
-            successMsg.innerHTML = `✅ ${message}`;
-            resultDiv.prepend(successMsg);
-
-            setTimeout(() => resumeScanning(), 1500);
+                alert(`✅ +${points} points! ${sameTeam ? '(Team Bonus!)' : '(New Connection!)'}`);
+                
+                showScreen('qrScreen');
+                updateScoreDisplay();
+            } catch (e) {
+                console.error('Chat confirm error:', e);
+                alert('Could not save. Please try again.');
+            }
         }
 
         function resumeScanning() {
-            document.getElementById('resultScreen').classList.remove('active');
-            document.getElementById('scannerScreen').classList.add('active');
             startScanning();
         }
 
         // LEADERBOARD
-        function goToLeaderboard() {
-            document.getElementById('qrScreen').classList.remove('active');
-            document.getElementById('leaderboardScreen').classList.add('active');
-            updateLeaderboard();
-        }
-
-        function updateLeaderboard() {
-            const teamScores = {};
-
-            Object.values(guestDatabase).forEach(guest => {
-                if (!teamScores[guest.team]) {
-                    teamScores[guest.team] = { total: 0, count: 0 };
-                }
-                teamScores[guest.team].total += guest.score;
-                teamScores[guest.team].count += 1;
-            });
-
-            const ranked = Object.entries(teamScores)
-                .map(([teamId, data]) => {
-                    const team = TEAMS.find(t => t.id === teamId);
-                    return {
-                        teamId,
-                        team,
-                        totalScore: data.total,
-                        memberCount: data.count,
-                        proRatedScore: data.count > 0 ? (data.total / data.count).toFixed(1) : 0
-                    };
-                })
-                .sort((a, b) => b.proRatedScore - a.proRatedScore);
-
-            const leaderboardHTML = ranked.map((item, index) => `
-                <div class="leaderboard-item">
-                    <div class="leaderboard-rank">#${index + 1}</div>
-                    <div class="leaderboard-team">
-                        <div class="leaderboard-team-name">${item.team.emoji} ${item.team.name}</div>
-                        <div class="leaderboard-team-score">${item.memberCount} ${item.memberCount === 1 ? 'member' : 'members'}</div>
-                    </div>
-                    <div class="leaderboard-points">${item.proRatedScore}</div>
-                </div>
-            `).join('');
-
-            document.getElementById('leaderboardList').innerHTML = leaderboardHTML;
+        async function goToLeaderboard() {
+            showScreen('leaderboardScreen');
             updateScoreDisplay();
+            await loadLeaderboard();
         }
 
-        // ADMIN FUNCTIONS
-        function refreshAdminStats() {
-            document.getElementById('guestCount').textContent = Object.keys(guestDatabase).length;
-            document.getElementById('interactionCount').textContent = interactions.length;
+        async function loadLeaderboard() {
+            try {
+                const querySnapshot = await window.fb.getDocs(window.fb.collection(window.fb.db, 'guests'));
+                const teamScores = {};
+                
+                querySnapshot.forEach(doc => {
+                    const guest = doc.data();
+                    if (!teamScores[guest.team]) {
+                        teamScores[guest.team] = { total: 0, count: 0 };
+                    }
+                    teamScores[guest.team].total += (guest.score || 0);
+                    teamScores[guest.team].count += 1;
+                });
 
-            // Update leaderboard
+                const ranked = Object.entries(teamScores)
+                    .map(([teamId, data]) => {
+                        const team = TEAMS.find(t => t.id === teamId);
+                        return {
+                            teamId, team,
+                            totalScore: data.total,
+                            memberCount: data.count,
+                            proRatedScore: data.count > 0 ? (data.total / data.count).toFixed(1) : 0
+                        };
+                    })
+                    .sort((a, b) => b.proRatedScore - a.proRatedScore);
+
+                if (ranked.length === 0) {
+                    document.getElementById('leaderboardList').innerHTML = '<div class="loading-message">No guests yet</div>';
+                    return;
+                }
+
+                const html = ranked.map((item, index) => `
+                    <div class="leaderboard-item">
+                        <div class="leaderboard-rank">#${index + 1}</div>
+                        <div class="leaderboard-team">
+                            <div class="leaderboard-team-name">${item.team.emoji} ${item.team.name}</div>
+                            <div class="leaderboard-team-score">${item.memberCount} ${item.memberCount === 1 ? 'member' : 'members'}</div>
+                        </div>
+                        <div class="leaderboard-points">${item.proRatedScore}</div>
+                    </div>
+                `).join('');
+
+                document.getElementById('leaderboardList').innerHTML = html;
+            } catch (e) {
+                console.error('Leaderboard error:', e);
+                document.getElementById('leaderboardList').innerHTML = '<div class="loading-message">Error loading</div>';
+            }
+        }
+
+        // ADMIN
+        function startAdminListeners() {
+            if (adminUnsubscribe) adminUnsubscribe();
+
+            // Listen to guests collection in real-time
+            adminUnsubscribe = window.fb.onSnapshot(
+                window.fb.collection(window.fb.db, 'guests'),
+                (snapshot) => {
+                    const guests = [];
+                    snapshot.forEach(doc => guests.push({ id: doc.id, ...doc.data() }));
+                    updateAdminDisplay(guests);
+                }
+            );
+
+            // Listen to interactions
+            window.fb.onSnapshot(
+                window.fb.collection(window.fb.db, 'interactions'),
+                (snapshot) => {
+                    document.getElementById('interactionCount').textContent = snapshot.size;
+                    
+                    const interactions = [];
+                    snapshot.forEach(doc => interactions.push(doc.data()));
+                    interactions.sort((a, b) => {
+                        const aTime = a.timestamp ? a.timestamp.toMillis() : 0;
+                        const bTime = b.timestamp ? b.timestamp.toMillis() : 0;
+                        return bTime - aTime;
+                    });
+
+                    const logHTML = interactions.slice(0, 20).map(i => `
+                        <div class="log-entry">
+                            <strong>${i.guest1Name}</strong> met <strong>${i.guest2Name}</strong> +${i.points} pts ${i.sameTeam ? '(team)' : ''}
+                        </div>
+                    `).join('');
+
+                    document.getElementById('adminLog').innerHTML = logHTML || '<div class="loading-message">No interactions yet</div>';
+                }
+            );
+        }
+
+        function updateAdminDisplay(guests) {
+            document.getElementById('guestCount').textContent = guests.length;
+
             const teamScores = {};
-            Object.values(guestDatabase).forEach(guest => {
+            guests.forEach(guest => {
                 if (!teamScores[guest.team]) {
                     teamScores[guest.team] = { total: 0, count: 0 };
                 }
-                teamScores[guest.team].total += guest.score;
+                teamScores[guest.team].total += (guest.score || 0);
                 teamScores[guest.team].count += 1;
             });
 
@@ -1088,8 +996,7 @@
                 .map(([teamId, data]) => {
                     const team = TEAMS.find(t => t.id === teamId);
                     return {
-                        teamId,
-                        team,
+                        teamId, team,
                         totalScore: data.total,
                         memberCount: data.count,
                         proRatedScore: data.count > 0 ? (data.total / data.count).toFixed(1) : 0
@@ -1097,7 +1004,12 @@
                 })
                 .sort((a, b) => b.proRatedScore - a.proRatedScore);
 
-            const leaderboardHTML = ranked.map((item, index) => `
+            if (ranked.length === 0) {
+                document.getElementById('adminLeaderboard').innerHTML = '<div class="loading-message">No guests yet</div>';
+                return;
+            }
+
+            const html = ranked.map((item, index) => `
                 <div class="leaderboard-item">
                     <div class="leaderboard-rank">#${index + 1}</div>
                     <div class="leaderboard-team">
@@ -1108,69 +1020,147 @@
                 </div>
             `).join('');
 
-            document.getElementById('adminLeaderboard').innerHTML = leaderboardHTML;
-
-            // Update interaction log
-            const logHTML = interactions.slice().reverse().slice(0, 20).map(i => `
-                <div class="log-entry">
-                    <strong>${i.guest1Name}</strong> met <strong>${i.guest2Name}</strong> +${i.points} pts ${i.sameTeam ? '(team)' : ''}
-                </div>
-            `).join('');
-
-            document.getElementById('adminLog').innerHTML = logHTML || '<div class="log-entry">No interactions yet</div>';
+            document.getElementById('adminLeaderboard').innerHTML = html;
         }
 
-        function updatePointValues() {
+        async function updatePointValues() {
             gameSettings.sameTeam = parseInt(document.getElementById('sameTeamPoints').value) || 20;
             gameSettings.diffTeam = parseInt(document.getElementById('diffTeamPoints').value) || 10;
-            localStorage.setItem('gameSettings', JSON.stringify(gameSettings));
-            alert('Point values updated!');
-        }
-
-        function resetAllScores() {
-            if (confirm('Reset all scores? This cannot be undone.')) {
-                Object.keys(guestDatabase).forEach(key => {
-                    guestDatabase[key].score = 0;
-                });
-                interactions = [];
-                localStorage.setItem('guests', JSON.stringify(guestDatabase));
-                localStorage.setItem('interactions', JSON.stringify(interactions));
-                if (currentGuest) currentGuest.score = 0;
-                alert('All scores reset!');
-                refreshAdminStats();
+            
+            try {
+                await window.fb.setDoc(window.fb.doc(window.fb.db, 'settings', 'game'), gameSettings);
+                alert('✅ Point values updated! All future scans will use new values.');
+            } catch (e) {
+                console.error('Update error:', e);
+                alert('Error updating');
             }
         }
 
-        // INITIALIZATION
-        function init() {
-            // Set deletion date (7 days from now)
+        async function resetAllScores() {
+            if (!confirm('Reset all scores to zero? This cannot be undone.')) return;
+            
+            try {
+                const snapshot = await window.fb.getDocs(window.fb.collection(window.fb.db, 'guests'));
+                const batch = window.fb.writeBatch(window.fb.db);
+                
+                snapshot.forEach(doc => {
+                    batch.update(doc.ref, { score: 0 });
+                });
+                
+                await batch.commit();
+
+                // Delete all interactions
+                const interactionsSnap = await window.fb.getDocs(window.fb.collection(window.fb.db, 'interactions'));
+                const batch2 = window.fb.writeBatch(window.fb.db);
+                interactionsSnap.forEach(doc => batch2.delete(doc.ref));
+                await batch2.commit();
+
+                if (currentGuest) currentGuest.score = 0;
+                alert('✅ All scores reset!');
+            } catch (e) {
+                console.error('Reset error:', e);
+                alert('Error resetting');
+            }
+        }
+
+        async function deleteAllData() {
+            if (!confirm('⚠️ DELETE ALL GUESTS AND DATA? This will remove EVERYONE from the party. Are you absolutely sure?')) return;
+            if (!confirm('Last chance. Really delete everything?')) return;
+            
+            try {
+                const guestSnap = await window.fb.getDocs(window.fb.collection(window.fb.db, 'guests'));
+                const batch = window.fb.writeBatch(window.fb.db);
+                guestSnap.forEach(doc => batch.delete(doc.ref));
+                await batch.commit();
+
+                const intSnap = await window.fb.getDocs(window.fb.collection(window.fb.db, 'interactions'));
+                const batch2 = window.fb.writeBatch(window.fb.db);
+                intSnap.forEach(doc => batch2.delete(doc.ref));
+                await batch2.commit();
+
+                localStorage.removeItem('currentGuestId');
+                currentGuest = null;
+                
+                alert('✅ All data deleted');
+                showScreen('consentScreen');
+            } catch (e) {
+                console.error('Delete error:', e);
+                alert('Error deleting');
+            }
+        }
+
+        // LOAD GAME SETTINGS
+        async function loadGameSettings() {
+            try {
+                const settingsDoc = await window.fb.getDoc(window.fb.doc(window.fb.db, 'settings', 'game'));
+                if (settingsDoc.exists()) {
+                    gameSettings = settingsDoc.data();
+                    const sameEl = document.getElementById('sameTeamPoints');
+                    const diffEl = document.getElementById('diffTeamPoints');
+                    if (sameEl) sameEl.value = gameSettings.sameTeam;
+                    if (diffEl) diffEl.value = gameSettings.diffTeam;
+                }
+            } catch (e) { console.error('Settings load error:', e); }
+        }
+
+        // INIT
+        async function init() {
+            // Set deletion date
             const deletionDate = new Date();
             deletionDate.setDate(deletionDate.getDate() + 7);
             document.getElementById('deletionDate').textContent = deletionDate.toLocaleDateString('en-US', { 
-                month: 'short', 
-                day: 'numeric', 
-                year: 'numeric' 
+                month: 'short', day: 'numeric', year: 'numeric' 
             });
 
-            // Check if guest already exists
-            const savedGuestId = localStorage.getItem('currentGuestId');
-            if (savedGuestId && guestDatabase[savedGuestId]) {
-                currentGuest = guestDatabase[savedGuestId];
-                document.getElementById('consentScreen').classList.remove('active');
-                document.getElementById('qrScreen').classList.add('active');
-                generateQRCode();
-                updateScoreDisplay();
-            }
+            await loadGameSettings();
 
-            // Load game settings
-            document.getElementById('sameTeamPoints').value = gameSettings.sameTeam;
-            document.getElementById('diffTeamPoints').value = gameSettings.diffTeam;
+            // Check for existing guest
+            const savedGuestId = localStorage.getItem('currentGuestId');
+            if (savedGuestId) {
+                try {
+                    const guestDoc = await window.fb.getDoc(window.fb.doc(window.fb.db, 'guests', savedGuestId));
+                    if (guestDoc.exists()) {
+                        const data = guestDoc.data();
+                        currentGuest = {
+                            id: savedGuestId,
+                            name: data.name,
+                            funFact: data.funFact,
+                            team: data.team,
+                            score: data.score || 0
+                        };
+                        goToQRCode();
+                        return;
+                    } else {
+                        localStorage.removeItem('currentGuestId');
+                    }
+                } catch (e) { console.error('Init error:', e); }
+            }
         }
 
-        init();
+        // Make functions global
+        window.agreeToConsent = agreeToConsent;
+        window.declineConsent = declineConsent;
+        window.adminLogin = adminLogin;
+        window.adminAccessCheck = adminAccessCheck;
+        window.exitAdmin = exitAdmin;
+        window.goBackHome = goBackHome;
+        window.setupGuest = setupGuest;
+        window.goToQRCode = goToQRCode;
+        window.startScanning = startScanning;
+        window.stopScanning = stopScanning;
+        window.confirmedChat = confirmedChat;
+        window.resumeScanning = resumeScanning;
+        window.goToLeaderboard = goToLeaderboard;
+        window.updatePointValues = updatePointValues;
+        window.resetAllScores = resetAllScores;
+        window.deleteAllData = deleteAllData;
+
+        // Wait for Firebase to load
+        if (window.firebaseReady) {
+            init();
+        } else {
+            window.addEventListener('firebaseReady', init);
+        }
     </script>
-    
-    <!-- FLOATING ADMIN BUTTON -->
-    <button class="admin-button-floating" onclick="adminLogin()" title="Admin Login">⚙️</button>
 </body>
 </html>
